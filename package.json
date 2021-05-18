@@ -11,7 +11,7 @@
   "main": "main.js",
   "scripts": {
     "build": "npm run build:dev -- --minify",
-    "build:dev": "esbuild ./src/index.js --bundle --platform=node --target=node15.12  --outfile=build/main.bundle-server.js",
+    "build:dev": "esbuild ./src/index.js --bundle --platform=node --target=node16.0  --outfile=build/main.bundle-server.js",
     "watch": "npm run build:dev -- --watch",
     "start": "node ./build/main.bundle-server.js",
     "dev": "nodemon ./build/main.bundle-server.js",
