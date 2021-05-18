@@ -6,7 +6,17 @@ function getApiUri() {
 
 function getMessagesUrl(year, month, day) {
   const API_URI = getApiUri();
-  return `${API_URI}/api/mongo/read/conversations.messages?year=${year}&month=${month}&day=${day}`;
+  const API_GET_MESSAGES_URL = `${API_URI}/api/mongo/read/conversations.messages`;
+  if (day && month && year) {
+    return `${API_GET_MESSAGES_URL}?year=${year}&month=${month}&day=${day}`;
+  }
+  if (month && year) {
+    return `${API_GET_MESSAGES_URL}?year=${year}&month=${month}`;
+  }
+  if (year) {
+    return `${API_GET_MESSAGES_URL}?year=${year}`;
+  }
+  return `${API_GET_MESSAGES_URL}`;
 }
 
 export { getMessagesUrl };
