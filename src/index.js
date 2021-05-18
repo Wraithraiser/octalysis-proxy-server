@@ -2,6 +2,8 @@ import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import { initEnvVar } from './utils/env';
+import { getRouter } from './get/router';
+import { errorHandler } from './utils/error-handler';
 
 initEnvVar();
 
@@ -25,7 +27,12 @@ app.get('/', (req, res) => {
   res.send('Welcome to Octalysis Proxy server');
 });
 
+router.use('/get', getRouter);
+
 app.use('/api', router);
+
+// Handle errors with middleware
+app.use(errorHandler);
 
 if (process.env.NODE_ENV === 'production') {
   console.log('\n----- PRODUCTION MODE -----\n');
