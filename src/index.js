@@ -2,7 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import { initEnvVar } from './utils/env';
-import { getRouter } from './get/router';
+import { messagesRouter } from './features/messages/router';
 import { errorHandler } from './utils/error-handler';
 
 initEnvVar();
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to Octalysis Proxy server');
 });
 
-router.use('/get', getRouter);
+router.use('/messages', messagesRouter);
 
 app.use('/api', router);
 

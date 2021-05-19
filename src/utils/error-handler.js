@@ -12,7 +12,7 @@ function errorHandler(error, req, res, next) {
         details = error.details;
       }
     }
-    res.status(error.statusCode).json({
+    res.status(error.statusCode || 500).json({
       message: error.message,
       details,
     });
