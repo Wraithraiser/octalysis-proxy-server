@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { createCustomError } from '../utils/error-handler';
+import { createCustomError } from '../../utils/error-handler';
 
 async function fetchMessages(url, requestOptions) {
   try {

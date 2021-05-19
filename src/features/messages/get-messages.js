@@ -1,6 +1,6 @@
 import { getClientHeaders } from '../../utils/google-auth';
 import { getMessagesUrl } from '../../utils/http';
-import { fetchMessages } from '../fetch';
+import { fetchMessages } from './fetch';
 
 async function getMessagesRoute(req, res, next) {
   try {
